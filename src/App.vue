@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import DoggiesHeaderVue from "./components/DoggiesHeader.vue";
+import DoggiesHeader from "./components/DoggiesHeader.vue";
 </script>
 
 <template>
   <header>
     <img alt="Doggies logo" class="logo" src="@/assets/logo.svg" />
-    <DoggiesHeaderVue msg="The Doggies Explorer" />
+    <DoggiesHeader msg="The Doggies Explorer" />
   </header>
 
   <RouterView />
