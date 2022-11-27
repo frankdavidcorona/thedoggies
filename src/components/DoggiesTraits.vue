@@ -1,15 +1,8 @@
 <script setup lang="ts">
+import type { Doggie } from "@/interfaces/Doggie";
+
 defineProps<{
-  dog: {
-    name: string;
-    owner: string;
-    description: string;
-    thumbnail: string;
-    traits: {
-      trait: string;
-      value: string;
-    }[];
-  };
+  doggie: Doggie | null;
 }>();
 </script>
 
@@ -22,21 +15,9 @@ defineProps<{
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>CES-9000</td>
-        <td>50mt</td>
-      </tr>
-      <tr>
-        <td>CES-9000</td>
-        <td>50mt</td>
-      </tr>
-      <tr>
-        <td>CES-9000</td>
-        <td>50mt</td>
-      </tr>
-      <tr>
-        <td>CES-9000</td>
-        <td>50mt</td>
+      <tr v-for="(trait, index) in doggie?.traits" v-bind:key="index">
+        <td>{{ trait.trait }}</td>
+        <td>{{ trait.value }}</td>
       </tr>
     </tbody>
   </table>
