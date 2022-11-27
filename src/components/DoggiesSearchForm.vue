@@ -1,20 +1,45 @@
+<script lang="ts">
+export default {
+  data() {
+    return {
+      doggieToken: "",
+    };
+  },
+  methods: {
+    onSearchDoggies() {
+      if (this.doggieToken) {
+        this.$emit("doggieToken", this.doggieToken);
+      }
+    },
+  },
+};
+</script>
+
 <template>
   <div class="container">
     <div class="container__item">
       <div class="container__label">Token ID</div>
-      <form class="form">
+      <form class="form" @submit.prevent="onSearchDoggies">
         <input
           type="text"
           class="form__field"
+          id="doggieToken"
+          v-model="doggieToken"
           placeholder="Enter Doggie Token ID"
         />
       </form>
-    </div>
-    <div class="container__buttons">
-      <button type="button" class="btn btn__primary">Search</button>
-      <span class="material-symbols-outlined container__buttons__random">
-        casino
-      </span>
+      <div class="container__buttons">
+        <!-- Search doggies -->
+        <button class="btn btn__primary" @click="onSearchDoggies">
+          Search
+        </button>
+        <!-- Random search for doggies -->
+        <button class="btn">
+          <span class="material-symbols-outlined container__buttons__random">
+            casino
+          </span>
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -99,7 +124,7 @@ h3 {
 .form {
   &__field {
     font-size: 14px;
-    width: 24rem;
+    width: 100%;
     background: #fff;
     color: $input-text-color;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
