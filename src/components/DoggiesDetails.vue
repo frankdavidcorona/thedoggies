@@ -1,16 +1,9 @@
 <script setup lang="ts">
+import type { Doggie } from "@/interfaces/Doggie";
 import DoggiesTraits from "./DoggiesTraits.vue";
+
 defineProps<{
-  dog: {
-    name: string;
-    owner: string;
-    description: string;
-    thumbnail: string;
-    traits: {
-      trait: string;
-      value: string;
-    }[];
-  };
+  doggie: Doggie | null;
 }>();
 </script>
 
@@ -22,20 +15,21 @@ defineProps<{
       <div class="container__content__info">
         <h3>Title and Owner</h3>
         <p>
-          Named <b>{{ dog.name }}</b> and owned by <b>{{ dog.owner }}</b>
+          Named <b>{{ doggie?.name }}</b> and owned by
+          <b>{{ doggie?.owner }}</b>
         </p>
 
         <h3>Description</h3>
-        <p>{{ dog.description }}</p>
+        <p>{{ doggie?.description }}</p>
       </div>
 
       <div class="container__content__image">
-        <img :src="dog.thumbnail" alt="dog" />
+        <img :src="doggie?.thumbnail" alt="doggie" />
       </div>
     </div>
     <div class="container--divider"></div>
 
-    <DoggiesTraits :dog="dog" />
+    <DoggiesTraits v-if="doggie?.traits?.length" :doggie="doggie" />
   </div>
 </template>
 
