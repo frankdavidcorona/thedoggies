@@ -3,7 +3,7 @@ import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
 import DoggiesHeader from "../DoggiesHeader.vue";
 
-describe("HelloWorld", () => {
+describe("TheDoggies", () => {
   it("renders properly", () => {
     const wrapper = mount(DoggiesHeader, {
       props: { msg: "The Doggies Explorer" },
