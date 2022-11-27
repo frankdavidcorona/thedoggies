@@ -34,11 +34,7 @@ export default {
           Search
         </button>
         <!-- Random search for doggies -->
-        <button class="btn">
-          <span class="material-symbols-outlined container__buttons__random">
-            casino
-          </span>
-        </button>
+        <button class="btn btn__primary">I'm Feeling Lucky</button>
       </div>
     </div>
   </div>
@@ -76,16 +72,6 @@ h3 {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-
-    &__random {
-      font-size: 2rem;
-      color: $button-bg-color;
-      margin-left: 0.5rem;
-
-      &:hover {
-        cursor: pointer;
-      }
-    }
   }
 }
 
@@ -106,7 +92,8 @@ h3 {
     color: $button-text-color;
     border-radius: 4px;
     padding: 8px 24px;
-    width: 24rem;
+    margin: 0 0.5rem;
+    width: 16rem;
 
     color: #81d4fa;
     letter-spacing: 0.5px;
