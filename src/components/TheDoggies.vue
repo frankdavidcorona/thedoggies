@@ -11,7 +11,7 @@ export default {
     };
   },
   methods: {
-    onSearchDoggies(doggieToken: string) {
+    onSearchDoggies(doggieToken: string): void {
       console.log("[🚀::debugger]", doggieToken);
       this.doggie = {
         name: "Dogo",

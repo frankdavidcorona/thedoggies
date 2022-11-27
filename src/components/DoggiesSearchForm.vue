@@ -6,10 +6,14 @@ export default {
     };
   },
   methods: {
-    onSearchDoggies() {
+    onSearchDoggies(): void {
       if (this.doggieToken) {
         this.$emit("doggieToken", this.doggieToken);
       }
+    },
+
+    clearDoggieToken(): void {
+      this.doggieToken = "";
     },
   },
 };
@@ -27,7 +31,11 @@ export default {
           v-model="doggieToken"
           placeholder="Enter Doggie Token ID"
         />
-        <span v-if="doggieToken" class="material-symbols-outlined clear">
+        <span
+          v-if="doggieToken"
+          @click="clearDoggieToken"
+          class="material-symbols-outlined clear"
+        >
           backspace
         </span>
       </form>
