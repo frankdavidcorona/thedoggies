@@ -27,6 +27,9 @@ export default {
           v-model="doggieToken"
           placeholder="Enter Doggie Token ID"
         />
+        <span v-if="doggieToken" class="material-symbols-outlined clear">
+          backspace
+        </span>
       </form>
       <div class="container__buttons">
         <!-- Search doggies -->
@@ -72,6 +75,7 @@ h3 {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    margin: 0 3rem;
   }
 }
 
@@ -89,7 +93,6 @@ h3 {
   cursor: pointer;
 
   &__primary {
-    color: $button-text-color;
     border-radius: 4px;
     padding: 8px 24px;
     margin: 0 0.5rem;
@@ -120,6 +123,21 @@ h3 {
     outline: 0;
     padding: 1.25rem 1.5rem;
     margin: 0 0 1rem 0;
+  }
+}
+
+.clear {
+  position: relative;
+  float: right;
+  border: 0;
+  height: 40px;
+  right: 7px;
+  bottom: 64px;
+  color: $button-bg-color;
+  padding: 8px;
+
+  &:hover {
+    cursor: pointer;
   }
 }
 </style>
